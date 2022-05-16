@@ -1,0 +1,215 @@
+/* went on google and downloaded background and posted code to make it the back */
+html { 
+    background: url(/background/backgroundphoto.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: opacity(10%);
+  }
+body{
+	padding: 0;
+	margin: 0;
+    /* display:flex;
+    flex-direction: column;  */
+}
+
+.flexwork{
+ display:grid;
+ grid-template-columns: 2fr 1fr 1fr 2fr;
+ grid-template-rows: 1fr 3fr 1fr;
+
+}
+
+
+
+
+COPIED CASTLE BASIC COLUM/ROOF ONLINE AND MODIFIED width/heigh/color/shape
+.container{
+
+height: 100vh;
+width: 100px;
+    
+}
+
+.firstcolumn{
+	margin-left: 3.25vw;
+	width:11.5vw;
+	height:29vh;
+    background: linear-gradient(90deg, rgba(118,206,228,1) 0%, rgba(209,240,245,1) 36%, rgba(63,141,190,1) 100%);
+
+}
+.first .castleRoof{
+        position: bottom;
+        margin-left: 1.7vw;
+        width: 0;
+        height: 0;
+        border-left: 7.2vw solid transparent;
+        border-right: 7.2vw solid transparent;
+        border-bottom: 25vh solid #013990;
+ 
+    }
+.secondcolumn{
+
+     object-position:100px ;
+        margin-left: 1.25vw;
+        width:11.5vw;
+        height:29vh;
+        background: linear-gradient(90deg, rgba(118,206,228,1) 0%, rgba(209,240,245,1) 36%, rgba(63,141,190,1) 100%);
+    
+    }
+
+body .second .castleRoof2{
+
+            margin-right: 1.7vw;
+            width: 0;
+            height: 0;
+            border-left: 7.2vw solid transparent;
+            border-right: 7.2vw solid transparent;
+            border-bottom: 25vh solid #013990;
+     
+        }
+div{
+    align-items:stretch;
+}
+p{
+    background-color: red;
+    font-size:20px;
+    font-weight: 900;
+    text-decoration-color: blueviolet;
+    text-align: center;
+}
+h1{ text-align: center;}
+h3{text-align: center;}
+/* COPIED STICK FIGURES FROM ONLINE THANK YOU TO : https://codepen.io/lorayoconnell/pen/pyayOP */
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 300px;
+  height: 300px;
+  display: block;
+  position: relative;
+}
+
+.head {
+  width: 50px;
+  height: 60px;
+  border: 5px solid black;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 21px;
+  left: 133px;
+  z-index: 1;
+  animation: rock 1s alternate infinite ease-in-out;
+  transform-origin: center bottom;
+}
+
+/* @keyframes rock {
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+} */
+
+.torso {
+  width: 6px;
+  height: 100px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 80px;
+  left: 156px;
+}
+
+.leftleg {
+  width: 6px;
+  height: 100px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 175px;
+  left: 155px;
+  transform: rotate(12deg);
+  transform-origin: top;
+}
+
+.rightleg {
+  width: 6px;
+  height: 100px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 175px;
+  left: 157px;
+  transform: rotate(-12deg);
+  transform-origin: top;
+}
+
+.leftarm {
+  width: 100px;
+  height: 6px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 86px;
+  left: 57px;
+  animation: wave 1s alternate infinite ease-in-out;
+  transform-origin: 100%;
+}
+
+/* @keyframes wave {
+  0% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(40deg);
+  }
+} */
+
+.rightarm {
+  width: 100px;
+  height: 6px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 86px;
+  left: 161px;
+  animation: wave2 1s alternate infinite ease-in-out;
+  transform-origin: 0%;
+}
+
+/* @keyframes wave2 {
+  0% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+} */
+
+.leftfoot {
+  width: 30px;
+  height: 6px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 270px;
+  left: 110px;
+  transform: rotate(8deg);
+}
+
+.rightfoot {
+  width: 30px;
+  height: 6px;
+  border: 3px solid black;
+  display: block;
+  position: absolute;
+  top: 270px;
+  left: 178px;
+  transform: rotate(-8deg);
+}
