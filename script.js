@@ -1,16 +1,16 @@
 // buttons and naming variables
 
 
-const menuselect = document.querySelector('#selection')
 const fightBt= document.querySelector('#FIGHT')
 const buyBt= document.querySelector('#BUY')
+const menuBt= document.querySelector('#selecting')
+
 const testBt= document.querySelector('#test')
 const gold1= document.querySelector('#gold1')
 const gold2= document.querySelector('#gold2')
 const hp1= document.querySelector('#hp1')
 const hp2= document.querySelector('#hp2')
 
-console.log(menuselect)
 // const testBt= document.querySelector('#test')
 // const testBt= document.querySelector('#test')
 // const testBt= document.querySelector('#test')
@@ -38,7 +38,7 @@ hp1.innerHTML= castleHP1
 hp2.innerHTML= castleHP2
 gold1.innerHTML= castleGold1
 gold2.innerHTML= castleGold2
-fighter2 = 0
+
 function resetgame(level){ 
     fighter1 = 0
     fighter2 = 0
@@ -61,6 +61,7 @@ function resetgame(level){
     hp2.innerHTML= castleHP2
     gold1.innerHTML= castleGold1
     gold2.innerHTML= castleGold2
+    endgame()
 }
 
 // fighting calculation
@@ -121,13 +122,6 @@ fightBt.addEventListener('click',(war)=>{
     compare()
     endgame()
 })
-// serchBut.addEventListener('click',(event)=>{
-//     event.preventDefault();
-//     const tag = document.querySelector('select')
-//     let one = 'pokemon'
-//     let two = 'move'
-//     let three = 'ability'
-//     let four = 'location'
 
 buyBt.addEventListener('click',()=>{
     const buyselect = document.querySelector('#shopping')
@@ -142,8 +136,7 @@ else if(buyselect.value == 2){
     if(castleGold1>= but1){
         castleHP1 += 1
         castleGold1-= 1
-}
-}
+}}
 updatestats()
 })
 
@@ -155,6 +148,23 @@ function endgame(death){
         testBt.innerHTML = "GAME OVER PLAYER 1 WINS"
     }
     else{
-    }
+        testBt.innerHTML = "FIGHT!!!!"
+    } 
 }
 // resetgame()
+menuBt.addEventListener('click',()=>{
+    const menuselect = document.querySelector('#selection')
+    console.log(menuselect.value)
+    if(menuselect.value == 1 ){
+resetgame()
+}
+else if(menuselect.value == 2){
+// RULES EXPLANATION
+}
+else if(menuselect.value == 3){
+resetgame()
+weapon2= 4
+castleHP2=30
+}
+updatestats()
+})
