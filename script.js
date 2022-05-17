@@ -8,11 +8,10 @@ const gold2= document.querySelector('#gold2')
 const hp1= document.querySelector('#hp1')
 const hp2= document.querySelector('#hp2')
 const rules1= document.querySelector('#rulemodal')
+const closeBt= document.querySelector('#close')
 // const testBt= document.querySelector('#test')
 // const testBt= document.querySelector('#test')
 // const testBt= document.querySelector('#test')
-// const testBt= document.querySelector('#test')
-
 let fighter1 = 0
 let fighter2 = 0
 let weapon1= 3
@@ -121,6 +120,12 @@ fightBt.addEventListener('click',(war)=>{
 function openrules1(){
     rules1.style.display = 'block';
 }
+function closerules1(){
+    rules1.style.display = 'none';
+}
+closeBt.addEventListener('click',()=>{
+    closerules1()
+})
 buyBt.addEventListener('click',()=>{
     const buyselect = document.querySelector('#shopping')
    
