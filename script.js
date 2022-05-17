@@ -9,8 +9,9 @@ const hp1= document.querySelector('#hp1')
 const hp2= document.querySelector('#hp2')
 const rules1= document.querySelector('#rulemodal')
 const closeBt= document.querySelector('#close')
-// const testBt= document.querySelector('#test')
-// const testBt= document.querySelector('#test')
+const playUpd1= document.querySelector('#play1')
+const playUpd2= document.querySelector('#play2')
+let playUpd0= testBt
 // const testBt= document.querySelector('#test')
 let fighter1 = 0
 let fighter2 = 0
@@ -62,11 +63,9 @@ function resetgame(level){
 // fighting calculation
 function attacker1(wep){
     attack1 += Math.ceil(( Math.random() * weapon1)+ attMod)
-testBt.innerHTML= attack1
 }
 function attacker2(wep){
     attack2 += Math.ceil( Math.random() * weapon2)
-testBt.innerHTML= (`${attack2}  ${attack1} ${diff} ${winner} `)
 }
 function compare(sand){
 if (attack1 < attack2){
@@ -80,8 +79,23 @@ else if (attack1 > attack2){
 diff = 0
 winner =0 }
 console.log(winner)
+displayer(winner)
 hp(winner)
 }
+
+function displayer(ran){
+    if (ran == 2){
+        playUpd1.innerHTML= `-${diff} lost`
+    }
+    else if (ran == 1){
+        playUpd2.innerHTML= `-${diff} lost`
+    }  else if (ran == 0){
+      testBt.innerHTML = "TIE"
+    } else{
+    testBt.innerHTML = ""
+    playUpd2.innerHTML= ``
+    playUpd1.innerHTML= ``
+}}
 // WINNER AND REWARDS AND LOSSES
 function hp(victor)
 {
@@ -114,6 +128,7 @@ gold2.innerHTML= castleGold2
 fightBt.addEventListener('click',(war)=>{
     attacker1()
     attacker2()
+    displayer()
     compare()
     endgame()
 })
@@ -151,7 +166,7 @@ function endgame(death){
         testBt.innerHTML = "GAME OVER PLAYER 1 WINS"
     }
     else{
-        testBt.innerHTML = "FIGHT!!!!"
+        // testBt.innerHTML = "FIGHT!!!!"
     } 
 }
 // resetgame()
