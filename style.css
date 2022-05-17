@@ -72,6 +72,8 @@ body .second .castleRoof2{
 div{
     align-items:stretch;
 }
+
+
 p{
     background-color: red;
     font-size:20px;
@@ -213,3 +215,15 @@ h3{text-align: center;}
   left: 178px;
   transform: rotate(-8deg);
 }
+/* learned z index and copied code/modified to work */
+#rulemodal{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    display:none;
+  }
+
+  #box6{
+align-items: end;
+  }

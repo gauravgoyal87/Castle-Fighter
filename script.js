@@ -1,17 +1,13 @@
 // buttons and naming variables
-
-
 const fightBt= document.querySelector('#FIGHT')
 const buyBt= document.querySelector('#BUY')
 const menuBt= document.querySelector('#selecting')
-
 const testBt= document.querySelector('#test')
 const gold1= document.querySelector('#gold1')
 const gold2= document.querySelector('#gold2')
 const hp1= document.querySelector('#hp1')
 const hp2= document.querySelector('#hp2')
-
-// const testBt= document.querySelector('#test')
+const rules1= document.querySelector('#rulemodal')
 // const testBt= document.querySelector('#test')
 // const testBt= document.querySelector('#test')
 // const testBt= document.querySelector('#test')
@@ -122,7 +118,9 @@ fightBt.addEventListener('click',(war)=>{
     compare()
     endgame()
 })
-
+function openrules1(){
+    rules1.style.display = 'block';
+}
 buyBt.addEventListener('click',()=>{
     const buyselect = document.querySelector('#shopping')
    
@@ -160,6 +158,7 @@ resetgame()
 }
 else if(menuselect.value == 2){
 // RULES EXPLANATION
+openrules1()
 }
 else if(menuselect.value == 3){
 resetgame()
