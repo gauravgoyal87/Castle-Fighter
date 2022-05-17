@@ -12,7 +12,9 @@ const closeBt= document.querySelector('#close')
 const playUpd1= document.querySelector('#play1')
 const playUpd2= document.querySelector('#play2')
 let playUpd0= testBt
-// const testBt= document.querySelector('#test')
+const att1displ= document.querySelector('#att1dis')
+const att2displ= document.querySelector('#att2dis')
+
 let fighter1 = 0
 let fighter2 = 0
 let weapon1= 3
@@ -63,9 +65,12 @@ function resetgame(level){
 // fighting calculation
 function attacker1(wep){
     attack1 += Math.ceil(( Math.random() * weapon1)+ attMod)
+    att1displ.innerHTML=`${attack1}`
+
 }
 function attacker2(wep){
     attack2 += Math.ceil( Math.random() * weapon2)
+    att2displ.innerHTML=`${attack2}`
 }
 function compare(sand){
 if (attack1 < attack2){
@@ -166,7 +171,7 @@ function endgame(death){
         testBt.innerHTML = "GAME OVER PLAYER 1 WINS"
     }
     else{
-        // testBt.innerHTML = "FIGHT!!!!"
+       
     } 
 }
 // resetgame()
@@ -184,6 +189,10 @@ else if(menuselect.value == 3){
 resetgame()
 weapon2= 4
 castleHP2=30
+ testBt.innerHTML = "FIGHT!!!!"
+ playUpd2.innerHTML= ``
+ playUpd1.innerHTML= ``
 }
 updatestats()
 })
+
