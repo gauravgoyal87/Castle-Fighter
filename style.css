@@ -5,12 +5,7 @@ html {
   max-height: 800px;
   resize: both;
     background: url(/background/backgroundphoto.jpeg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
-    background: opacity(10%);
-
   }
 body{
 	padding: 0;
@@ -91,32 +86,26 @@ width: 100px;
         border-left: 7.2vw solid transparent;
         border-right: 7.2vw solid transparent;
         border-bottom: 25vh solid #013990;
- 
     }
 .secondcolumn{
-
      object-position:100px ;
         margin-left: 1.25vw;
         width:11.5vw;
         height:29vh;
         background: linear-gradient(90deg, rgba(118,206,228,1) 0%, rgba(209,240,245,1) 36%, rgba(63,141,190,1) 100%);
-    
     }
 
 body .second .castleRoof2{
-
             margin-right: 1.7vw;
             width: 0;
             height: 0;
             border-left: 7.2vw solid transparent;
             border-right: 7.2vw solid transparent;
             border-bottom: 25vh solid #013990;
-     
         }
 div{
     align-items:stretch;
 }
-
 
 p{
     background-color: red;
@@ -178,7 +167,7 @@ align-self: end;
 
 .leftleg {
   width: 6px;
-  height: 100px;
+  height: 125px;
   border: 3px solid black;
   display: block;
   position: absolute;
@@ -190,7 +179,7 @@ align-self: end;
 
 .rightleg {
   width: 6px;
-  height: 100px;
+  height: 125px;
   border: 3px solid black;
   display: block;
   position: absolute;
@@ -206,7 +195,7 @@ align-self: end;
   border: 3px solid black;
   display: block;
   position: absolute;
-  top: 86px;
+  top: 109px;
   left: 57px;
   animation: wave 1s alternate infinite ease-in-out;
   transform-origin: 100%;
@@ -227,7 +216,7 @@ align-self: end;
   border: 3px solid black;
   display: block;
   position: absolute;
-  top: 86px;
+  top: 109px;
   left: 161px;
   animation: wave2 1s alternate infinite ease-in-out;
   transform-origin: 0%;
@@ -248,8 +237,8 @@ align-self: end;
   border: 3px solid black;
   display: block;
   position: absolute;
-  top: 270px;
-  left: 110px;
+  top: 289px;
+  left: 105px;
   transform: rotate(8deg);
 }
 
@@ -259,9 +248,20 @@ align-self: end;
   border: 3px solid black;
   display: block;
   position: absolute;
-  top: 270px;
-  left: 178px;
+  top: 290px;
+  left: 183px;
   transform: rotate(-8deg);
+}
+.weapons {
+  width: 118px;
+  height: 6px;
+  border: 5px solid black;
+  display: block;
+  position: absolute;
+  top: 74px;
+  left: 198px;
+  transform: rotate(90deg);
+  -webkit-box-reflect: above 95px;
 }
 /* learned z index and copied code/modified to work */
 #rulemodal{
@@ -272,7 +272,6 @@ align-self: end;
     display:none;
     background-color: red ;
     color:navy;
-
   }
 
   #box6{

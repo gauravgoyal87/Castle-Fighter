@@ -59,6 +59,11 @@ function resetgame(level){
     hp2.innerHTML= castleHP2
     gold1.innerHTML= castleGold1
     gold2.innerHTML= castleGold2
+    testBt.innerHTML = "FIGHT!!!!"
+    playUpd2.innerHTML= ``
+    playUpd1.innerHTML= ``
+    att1displ.innerHTML=``
+    att2displ.innerHTML=``
     endgame()
 }
 
@@ -173,8 +178,7 @@ function endgame(death){
     else if (castleHP2 <= 0){
         testBt.innerHTML = "PLAYER 1 WINS"
     }
-    else{
-       
+    else{ 
     } 
 }
 // resetgame()
@@ -192,9 +196,6 @@ else if(menuselect.value == 3){
 resetgame()
 weapon2= 4
 castleHP2=30
- testBt.innerHTML = "FIGHT!!!!"
- playUpd2.innerHTML= ``
- playUpd1.innerHTML= ``
 }
 updatestats()
 })
