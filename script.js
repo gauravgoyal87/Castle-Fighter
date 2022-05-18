@@ -165,10 +165,10 @@ updatestats()
 
 function endgame(death){
     if (castleHP1 <= 0){
-        testBt.innerHTML = "GAME OVER PLAYER 2 WINS"
+        testBt.innerHTML = "GAME OVER!"
     }
     else if (castleHP2 <= 0){
-        testBt.innerHTML = "GAME OVER PLAYER 1 WINS"
+        testBt.innerHTML = "PLAYER 1 WINS"
     }
     else{
        
