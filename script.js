@@ -131,11 +131,13 @@ gold2.innerHTML= castleGold2
 //  attPlus = 0
 // eventlisterrs for fight
 fightBt.addEventListener('click',(war)=>{
+    if ((castleHP1 > 0) && (castleHP2 > 0)){
     attacker1()
     attacker2()
     displayer()
     compare()
     endgame()
+}
 })
 function openrules1(){
     rules1.style.display = 'block';
