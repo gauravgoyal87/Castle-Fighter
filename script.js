@@ -156,6 +156,7 @@ if(castleGold1 >= but1){
 console.log(castleGold1)
     attMod += 1
     castleGold1 -= 1
+    att1displ.innerHTML=`Attack +${attMod}`
 }}
 else if(buyselect.value == 2){
     if(castleGold1>= but1){
