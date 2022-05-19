@@ -99,6 +99,7 @@ function displayer(ran){
     }
     else if (ran == 1){
         playUpd2.innerHTML= `-${diff} lost`
+        playUpd1.innerHTML= `+${diff} gold`
     }  else if (ran == 0){
       testBt.innerHTML = "TIE"
     } else{
