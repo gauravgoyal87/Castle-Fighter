@@ -32,6 +32,7 @@ let attPlus = 1
 let but1 =1
 let but2 =2
 let but3 =4
+let gameMode = 2
 hp1.innerHTML= castleHP1
 hp2.innerHTML= castleHP2
 gold1.innerHTML= castleGold1
@@ -174,7 +175,10 @@ else if(buyselect.value == 2){
 })
 
 // ENDGAME CONDITION CHECK
+
+
 function endgame(death){
+    if (gameMode == 1){
     if (castleHP1 <= 0){
         testBt.innerHTML = "GAME OVER!"
     }
@@ -184,23 +188,95 @@ function endgame(death){
     else{ 
     } 
 }
+else if (gameMode == 2){
+    if (castleHP1 <= 0){
+        testBt.innerHTML = "GAME OVER! NICE TRY"
+    }
+    else if (castleHP2 <= 0){
+        testBt.innerHTML = "PLAYER 1 WINS"
+        nextRound()
+    }
+    else{ 
+    } 
+}}
+
+function nextRound(time){
+    console.log('testing')
+    strongerComp()
+    softReset()
+
+
+
+
+}
+
+
+function softReset(){
+         castleGold2 = 0
+        //  attack1 = 0
+        //  attack2 = 0
+        //  diff = 0
+        //  winner = 0
+        //  attMod = 0
+        //  attPlus = 1
+        //  but1 =1
+        //  but2 =2
+        //  but3 =4
+        hp1.innerHTML= castleHP1
+        hp2.innerHTML= castleHP2
+        gold1.innerHTML= castleGold1
+        gold2.innerHTML= castleGold2
+        testBt.innerHTML = "NEW ROUND"
+        playUpd2.innerHTML= ``
+        playUpd1.innerHTML= ``
+        att1displ.innerHTML=``
+        att2displ.innerHTML=``
+        label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+        label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
+        endgame()
+    }
+
+    
+
+function strongerComp(){
+if (castleGold2 < 10){
+    weapon2 += 1
+    castleHP2= 20 + (castleGold2)
+    console.log(`${weapon2}`)
+}
+else if (castleGold2 > 10 ){
+    weapon2 += 2
+    castleHP2= 10 + (castleGold2)
+    console.log(`${weapon2}`)
+}
+
+}
 // resetgame()
 menuBt.addEventListener('click',()=>{
     const menuselect = document.querySelector('#selection')
     if(menuselect.value == 1 ){
+        gameMode = 1
+    
         resetgame()
+        updatestats()
 }
 else if(menuselect.value == 2){
 // RULES EXPLANATION
     openrules1()
 }
 else if(menuselect.value == 3){
+    gameMode = 1
     resetgame()
     weapon2= 4
     castleHP2=30
     label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
     label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
-}
     updatestats()
-})
+}
+else if(menuselect.value == 4 ){
+    gameMode = 2
+    resetgame()
+    updatestats()
 
+}})
+    
