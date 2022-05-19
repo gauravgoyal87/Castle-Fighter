@@ -14,6 +14,9 @@ const playUpd2= document.querySelector('#play2')
 let playUpd0= testBt
 const att1displ= document.querySelector('#att1dis')
 const att2displ= document.querySelector('#att2dis')
+const label1= document.querySelector('.label1')
+const label2= document.querySelector('.label2')
+
 
 let fighter1 = 0
 let fighter2 = 0
@@ -36,7 +39,11 @@ hp1.innerHTML= castleHP1
 hp2.innerHTML= castleHP2
 gold1.innerHTML= castleGold1
 gold2.innerHTML= castleGold2
-
+wepBonus1=""
+wepBonus2=""
+console.log(label1)
+label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
 function resetgame(level){ 
     fighter1 = 0
     fighter2 = 0
@@ -197,6 +204,8 @@ else if(menuselect.value == 3){
 resetgame()
 weapon2= 4
 castleHP2=30
+label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
 }
 updatestats()
 })
