@@ -1,4 +1,10 @@
 # Castle-Fighter
+
+version 2 
+
+I intend to add Infinite Mode
+Create an RPG style
+
 Castle Fighter Game
 
 ![Alt text](/background/screenshot.jpg"Start game")
