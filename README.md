@@ -3,27 +3,35 @@
 
 Castle Fighter Game
 
-![Game Screen](/background/screenshot.jpg"Start game")
+![Game Screen](/background/screenshot.jpg)
 
 TECHNOLOGIES USED:
 
-JavaScript, HTML, CSS
+- JavaScript 
+- HTML 
+- CSS
 
 INSTALLATION INSTRUCTIONS:
 
-fork and clone or dowload my repo. then open index.html and have FUNNNNN!!!!!
+No need.
+Go to https://castlefighter.netlify.app/
+Have FUNNNNN!!!!!
 
 USER STORIES:
-As a user I click fight to have my fighter fight the opponents.
-as a user I get gold(money) when my fighter wins
-as a user I can spend gold to buy items and improve my chances of winning.
-as a user I want to beat someone and not rely on luck
+- As a user I click fight to have my fighter fight the opponents.
+- As a user I get gold when my fighter wins
+- As a user I can spend gold to buy items and improve my chances of winning.
+- As a user I want to beat someone and not rely on luck(i.e. skill)
 
 
 WIREFRAMES:
 
+
 Unsolved problems or Hurdles
-Some animation to hae swords clash- I didn't feel like violating DRY
+
+Some animation to have swords clash
+Blood animations
+Castle and fighters do no remain fixed with background
 
 Game works as intended and now I need to make it a bit more complex and fun!!!
 
