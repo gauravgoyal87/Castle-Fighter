@@ -142,6 +142,8 @@ function updatestats(){
 hp2.innerHTML= castleHP2
 gold1.innerHTML= castleGold1
 gold2.innerHTML= castleGold2
+label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
 }
 
 // eventlistener for fight
@@ -221,6 +223,12 @@ function nextRound(time){
 
 function softReset(){
          castleGold2 = 0
+        endgame()
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        roof2.style.borderBottomColor = "#" + randomColor;
+        let rome =  "linear-gradient(90deg, " + getRandomRgb() + " 0%, " + getRandomRgb() + " 36%, " + getRandomRgb() +" 100%)";
+        column2.style.background = rome;
+        updatestats()
         hp1.innerHTML= castleHP1
         hp2.innerHTML= castleHP2
         gold1.innerHTML= castleGold1
@@ -230,13 +238,6 @@ function softReset(){
         playUpd1.innerHTML= ``
         att1displ.innerHTML=``
         att2displ.innerHTML=``
-        label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
-        label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
-        endgame()
-        const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        roof2.style.borderBottomColor = "#" + randomColor;
-        let rome =  "linear-gradient(90deg, " + getRandomRgb() + " 0%, " + getRandomRgb() + " 36%, " + getRandomRgb() +" 100%)";
-        column2.style.background = rome;
 }
 function strongerComp(){
 if (castleGold2 < 10){
@@ -249,7 +250,6 @@ else if (castleGold2 > 10 ){
     castleHP2= 10 + (castleGold2)
     console.log(`${weapon2}`)
 }
-
 }
 // resetgame()
 menuBt.addEventListener('click',()=>{
@@ -269,8 +269,7 @@ else if(menuselect.value == 3){
     resetgame()
     weapon2= 4
     castleHP2=30
-    label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
-    label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
+   
     updatestats()
 }
 else if(menuselect.value == 4 ){
@@ -287,6 +286,8 @@ function getRandomRgb() {
     let b = num & 255;
   return  'rgba(' + r + ', ' + g + ', ' + b + ',1)';
   }
+
+//  ! WIN AND BUY MENU FUNCTIONS / EVENTLISTENERS 
 function openBuy(){
     winbuy.style.display = 'block';
 }
@@ -296,7 +297,9 @@ function closeBuy(){
 winBuyBt1.addEventListener('click',()=>{
     if(castleGold1 > 10){
         weapon1 += 1
-        castleGold1 -= 10
+        castleGold1 = castleGold1 - 10
+        label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+        gold1.innerHTML= castleGold1
     }
     else{}
     closeBuy()
@@ -304,7 +307,9 @@ winBuyBt1.addEventListener('click',()=>{
 winBuyBt2.addEventListener('click',()=>{
     if(castleGold1 > 10){
         castleHP1 += 20
-        castleGold1 -= 10
+        castleGold1 = castleGold1 - 10
+        gold1.innerHTML= castleGold1
+        hp1.innerHTML= castleHP1
     } else{}
     closeBuy()
 })

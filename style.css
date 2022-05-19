@@ -44,6 +44,7 @@ button {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    margin: auto;
   }
 
 COPIED CASTLE BASIC COLUM/ROOF ONLINE AND MODIFIED width/heigh/color/shape
@@ -251,15 +252,16 @@ h3{text-align: center;}
     color:navy;
   }
   #winbuy{
-    width: 500px;
+    border: black 2px solid;
+    width: 800px;
     height: 500px;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 100px;
+    top: 100px;
     z-index: 1;
     display:none;
-    background-color: red ;
-    color:navy;
+    background-color: green ;
+    color:yellow;
   }
 
 .buymenu{
@@ -291,4 +293,7 @@ h3{text-align: center;}
   text-align: center;
   text-size-adjust: auto;
   font-size: large;
+}
+
+.buyBts{
 }
