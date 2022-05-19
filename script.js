@@ -15,6 +15,8 @@ const att1displ= document.querySelector('#att1dis')
 const att2displ= document.querySelector('#att2dis')
 const label1= document.querySelector('.label1')
 const label2= document.querySelector('.label2')
+const roof2= document.querySelector('.castleRoof2')
+const column2= document.querySelector('.secondcolumn')
 let fighter1 = 0
 let fighter2 = 0
 let weapon1= 3
@@ -234,7 +236,12 @@ function softReset(){
         label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
         label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
         endgame()
-    }
+
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        roof2.style.borderBottomColor = "#" + randomColor;
+        let rome =  "linear-gradient(90deg, " + getRandomRgb() + " 0%, " + getRandomRgb() + " 36%, " + getRandomRgb() +" 100%)";
+        column2.style.background = rome;
+}
 
     
 
@@ -280,3 +287,12 @@ else if(menuselect.value == 4 ){
 
 }})
     
+
+function getRandomRgb() {
+    let num = Math.round(0xffffff * Math.random());
+    let r = num >> 16;
+    let g = num >> 8 & 255;
+    let b = num & 255;
+  return  'rgba(' + r + ', ' + g + ', ' + b + ',1)';
+  }
+  
