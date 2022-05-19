@@ -8,13 +8,19 @@ const gold2= document.querySelector('#gold2')
 const hp1= document.querySelector('#hp1')
 const hp2= document.querySelector('#hp2')
 const rules1= document.querySelector('#rulemodal')
+const winbuy= document.querySelector('#winbuy')
 const closeBt= document.querySelector('#close')
+const winBuyBt1= document.querySelector('#buywin1')
+const winBuyBt2= document.querySelector('#buywin2')
+const winBuyBt3= document.querySelector('#buywin3')
 const playUpd1= document.querySelector('#play1')
 const playUpd2= document.querySelector('#play2')
 const att1displ= document.querySelector('#att1dis')
 const att2displ= document.querySelector('#att2dis')
 const label1= document.querySelector('.label1')
 const label2= document.querySelector('.label2')
+const roof2= document.querySelector('.castleRoof2')
+const column2= document.querySelector('.secondcolumn')
 let fighter1 = 0
 let fighter2 = 0
 let weapon1= 3
@@ -32,6 +38,7 @@ let attPlus = 1
 let but1 =1
 let but2 =2
 let but3 =4
+let gameMode = 2
 hp1.innerHTML= castleHP1
 hp2.innerHTML= castleHP2
 gold1.innerHTML= castleGold1
@@ -135,6 +142,8 @@ function updatestats(){
 hp2.innerHTML= castleHP2
 gold1.innerHTML= castleGold1
 gold2.innerHTML= castleGold2
+label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
 }
 
 // eventlistener for fight
@@ -174,7 +183,10 @@ else if(buyselect.value == 2){
 })
 
 // ENDGAME CONDITION CHECK
+
+
 function endgame(death){
+    if (gameMode == 1){
     if (castleHP1 <= 0){
         testBt.innerHTML = "GAME OVER!"
     }
@@ -184,23 +196,123 @@ function endgame(death){
     else{ 
     } 
 }
+else if (gameMode == 2){
+    if (castleHP1 <= 0){
+        testBt.innerHTML = "GAME OVER! NICE TRY"
+    }
+    else if (castleHP2 <= 0){
+        testBt.innerHTML = "PLAYER 1 WINS"
+        nextRound()
+    }
+    else{ 
+    } 
+}}
+// ! new round infinite
+function nextRound(time){
+    console.log('testing')
+    castleGold1 += 5
+    castleHP1 += 5
+    strongerComp()
+    
+    openBuy()
+
+
+    softReset()
+}
+
+
+function softReset(){
+         castleGold2 = 0
+        endgame()
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        roof2.style.borderBottomColor = "#" + randomColor;
+        let rome =  "linear-gradient(90deg, " + getRandomRgb() + " 0%, " + getRandomRgb() + " 36%, " + getRandomRgb() +" 100%)";
+        column2.style.background = rome;
+        updatestats()
+        hp1.innerHTML= castleHP1
+        hp2.innerHTML= castleHP2
+        gold1.innerHTML= castleGold1
+        gold2.innerHTML= castleGold2
+        testBt.innerHTML = "NEW ROUND"
+        playUpd2.innerHTML= ``
+        playUpd1.innerHTML= ``
+        att1displ.innerHTML=``
+        att2displ.innerHTML=``
+}
+function strongerComp(){
+if (castleGold2 < 10){
+    weapon2 += 1
+    castleHP2= 20 + (castleGold2)
+    console.log(`${weapon2}`)
+}
+else if (castleGold2 > 10 ){
+    weapon2 += 2
+    castleHP2= 10 + (castleGold2)
+    console.log(`${weapon2}`)
+}
+}
 // resetgame()
 menuBt.addEventListener('click',()=>{
     const menuselect = document.querySelector('#selection')
     if(menuselect.value == 1 ){
+        gameMode = 1
+    
         resetgame()
+        updatestats()
 }
 else if(menuselect.value == 2){
 // RULES EXPLANATION
     openrules1()
 }
 else if(menuselect.value == 3){
+    gameMode = 1
     resetgame()
     weapon2= 4
     castleHP2=30
-    label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
-    label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
-}
+   
     updatestats()
-})
+}
+else if(menuselect.value == 4 ){
+    gameMode = 2
+    resetgame()
+    updatestats()
 
+}})
+
+function getRandomRgb() {
+    let num = Math.round(0xffffff * Math.random());
+    let r = num >> 16;
+    let g = num >> 8 & 255;
+    let b = num & 255;
+  return  'rgba(' + r + ', ' + g + ', ' + b + ',1)';
+  }
+
+//  ! WIN AND BUY MENU FUNCTIONS / EVENTLISTENERS 
+function openBuy(){
+    winbuy.style.display = 'block';
+}
+function closeBuy(){
+    winbuy.style.display = 'none';
+}
+winBuyBt1.addEventListener('click',()=>{
+    if(castleGold1 > 10){
+        weapon1 += 1
+        castleGold1 = castleGold1 - 10
+        label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+        gold1.innerHTML= castleGold1
+    }
+    else{}
+    closeBuy()
+})
+winBuyBt2.addEventListener('click',()=>{
+    if(castleGold1 > 10){
+        castleHP1 += 20
+        castleGold1 = castleGold1 - 10
+        gold1.innerHTML= castleGold1
+        hp1.innerHTML= castleHP1
+    } else{}
+    closeBuy()
+})
+winBuyBt3.addEventListener('click',()=>{
+    closeBuy()
+})
