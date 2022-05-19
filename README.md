@@ -39,7 +39,7 @@ Have FFFFFUUUUUUNNNNN!!!!!
 
 <strong>version 2.0</strong>
 
-1. [ ]Add Infinite Mode
+1. [X]Add Infinite Mode (completed 5/19/22)
 2. [ ]Create an RPG style
 3. [ ]Update graphics
 4. [ ]Animation
