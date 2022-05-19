@@ -17,7 +17,7 @@
 
 No need.
 Go to https://castlefighter.netlify.app/<br>
-Have FUNNNNN!!!!!
+Have FFFFFUUUUUUNNNNN!!!!!
 ***
 <h2>USER STORIES:</h2>
 
@@ -33,7 +33,7 @@ Have FUNNNNN!!!!!
 2. Blood animations
 3. Castle and fighters do no remain fixed with background
 
-<strong><em> Game works as intended and now I need to make it a bit more complex and fun!!!</em></strong>
+<strong><em> Game works as intended and now I need to make it a bit more complex and  more fun!!!</em></strong>
 ***
 <h2>What's left?</h2>
 
