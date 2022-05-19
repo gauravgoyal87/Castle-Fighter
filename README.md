@@ -1,13 +1,9 @@
 # Castle-Fighter
 
-version 2 
-
-I intend to add Infinite Mode
-Create an RPG style
 
 Castle Fighter Game
 
-![Alt text](/background/screenshot.jpg"Start game")
+![Game Screen](/background/screenshot.jpg"Start game")
 
 TECHNOLOGIES USED:
 
@@ -30,3 +26,10 @@ Unsolved problems or Hurdles
 Some animation to hae swords clash- I didn't feel like violating DRY
 
 Game works as intended and now I need to make it a bit more complex and fun!!!
+
+What's left?
+
+version 2.0
+
+[ ]add Infinite Mode
+[ ]Create an RPG style
