@@ -44,27 +44,10 @@ button {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-  
-    &:hover,
-    &:focus {
-      color: #fff;
-      outline: 0;
-    }
   }
-  
-#fight {
-  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-  &:hover {
-    box-shadow: 0 0 40px 40px red inset;
-  }
-}
-
-
-
 
 COPIED CASTLE BASIC COLUM/ROOF ONLINE AND MODIFIED width/heigh/color/shape
 .container{
-
 height: 100vh;
 width: 100px;
     align-self: end;
@@ -93,7 +76,6 @@ width: 100px;
         width:11.5vw;
         height:29vh;
         background: linear-gradient(90deg, rgba(118,206,228,1) 0%, rgba(209,240,245,1) 36%, rgba(63,141,190,1) 100%);
-      
       }
 
 body .second .castleRoof2{
@@ -104,10 +86,6 @@ body .second .castleRoof2{
             border-right: 7.2vw solid transparent;
             border-bottom: 25vh solid #013990;
         }
-div{
-    align-items:stretch;
-}
-
 p{
     background-color: red;
     font-size:20px;
@@ -127,10 +105,8 @@ h3{text-align: center;}
   height: 300px;
   display: block;
   position: relative;
-align-items: flex-end;
-align-self: end;
-
-
+  align-items: flex-end;
+  align-self: end;
 }
 
 .head {
@@ -274,17 +250,24 @@ align-self: end;
     background-color: red ;
     color:navy;
   }
+  #winbuy{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    display:none;
+    background-color: red ;
+    color:navy;
+  }
 
-  #box6{
-align-items: end;
-justify-content: center;
- }
- 
- .buymenu{
+.buymenu{
   background-color: DodgerBlue;
  }
 
- .label1{        width: 100px;
+.label1{      
+  width: 100px;
   height: 100px;
   border: 8px solid black;
   display: block;
@@ -308,5 +291,4 @@ justify-content: center;
   text-align: center;
   text-size-adjust: auto;
   font-size: large;
-
 }
