@@ -23,7 +23,7 @@ const roof2= document.querySelector('.castleRoof2')
 const column2= document.querySelector('.secondcolumn')
 let fighter1 = 0
 let fighter2 = 0
-let weapon1= 3
+let weapon1= 5
 let castleHP1= 20
 let castleHP2= 20
 let weapon2= 3
@@ -128,7 +128,6 @@ else if (victor == 1){
     castleHP2 -= diff
     castleGold1 += diff
 }
-
  attack2 = 0
  attack1 = 0
  winner = 0
@@ -145,8 +144,7 @@ gold2.innerHTML= castleGold2
 label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
 label2.innerHTML=`WEAPON ${weapon2} ${wepBonus2}`
 }
-
-// eventlistener for fight
+//! eventlistener for fight
 fightBt.addEventListener('click',(war)=>{
     if ((castleHP1 > 0) && (castleHP2 > 0)){
     attacker1()
@@ -154,8 +152,7 @@ fightBt.addEventListener('click',(war)=>{
     displayer()
     compare()
     endgame()
-}
-})
+}})
 function openrules1(){
     rules1.style.display = 'block';
 }
@@ -179,12 +176,18 @@ else if(buyselect.value == 2){
         castleHP1 += 1
         castleGold1-= 1
 }}
+else if(buyselect.value == 3){
+    if(castleGold1>= but1){
+        for(let i = 0; i < castleGold1; i++)  {
+            attMod += 1
+            castleGold1 -= 1
+            att1displ.innerHTML=`Attack +${attMod}`
+            i--
+
+        }}}
     updatestats()
 })
-
 // ENDGAME CONDITION CHECK
-
-
 function endgame(death){
     if (gameMode == 1){
     if (castleHP1 <= 0){
@@ -209,20 +212,15 @@ else if (gameMode == 2){
 }}
 // ! new round infinite
 function nextRound(time){
-    console.log('testing')
     castleGold1 += 5
     castleHP1 += 5
     strongerComp()
-    
     openBuy()
-
-
     softReset()
 }
 
-
 function softReset(){
-         castleGold2 = 0
+        castleGold2 = 0
         endgame()
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         roof2.style.borderBottomColor = "#" + randomColor;
@@ -247,6 +245,7 @@ if (castleGold2 < 10){
 }
 else if (castleGold2 > 10 ){
     weapon2 += 2
+    castleGold2 -= 10
     castleHP2= 10 + (castleGold2)
     console.log(`${weapon2}`)
 }
@@ -256,7 +255,6 @@ menuBt.addEventListener('click',()=>{
     const menuselect = document.querySelector('#selection')
     if(menuselect.value == 1 ){
         gameMode = 1
-    
         resetgame()
         updatestats()
 }
@@ -269,15 +267,15 @@ else if(menuselect.value == 3){
     resetgame()
     weapon2= 4
     castleHP2=30
-   
     updatestats()
 }
 else if(menuselect.value == 4 ){
     gameMode = 2
     resetgame()
     updatestats()
-
 }})
+
+// taken from stack overflow
 
 function getRandomRgb() {
     let num = Math.round(0xffffff * Math.random());
@@ -286,7 +284,6 @@ function getRandomRgb() {
     let b = num & 255;
   return  'rgba(' + r + ', ' + g + ', ' + b + ',1)';
   }
-
 //  ! WIN AND BUY MENU FUNCTIONS / EVENTLISTENERS 
 function openBuy(){
     winbuy.style.display = 'block';
@@ -295,7 +292,13 @@ function closeBuy(){
     winbuy.style.display = 'none';
 }
 winBuyBt1.addEventListener('click',()=>{
-    if(castleGold1 > 10){
+    if(castleGold1 > 20){
+        weapon1 += 2
+        castleGold1 = castleGold1 - 20
+        label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
+        gold1.innerHTML= castleGold1
+    }
+    else if(castleGold1 > 10){
         weapon1 += 1
         castleGold1 = castleGold1 - 10
         label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
