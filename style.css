@@ -4,7 +4,7 @@ html {
   max-width: 1200px;
   max-height: 800px;
   resize: both;
-    background: url(/background/backgroundphoto.jpeg) no-repeat center center fixed; 
+    background: url(/background/fieldsky.png) no-repeat center center fixed; 
     background-size: cover;
   }
 body{

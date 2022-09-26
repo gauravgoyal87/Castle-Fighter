@@ -13,6 +13,8 @@ const closeBt= document.querySelector('#close')
 const winBuyBt1= document.querySelector('#buywin1')
 const winBuyBt2= document.querySelector('#buywin2')
 const winBuyBt3= document.querySelector('#buywin3')
+const winBuyBt4= document.querySelector('#buywin4')
+const winBuyBt5= document.querySelector('#buywin5')
 const playUpd1= document.querySelector('#play1')
 const playUpd2= document.querySelector('#play2')
 const att1displ= document.querySelector('#att1dis')
@@ -21,6 +23,7 @@ const label1= document.querySelector('.label1')
 const label2= document.querySelector('.label2')
 const roof2= document.querySelector('.castleRoof2')
 const column2= document.querySelector('.secondcolumn')
+let roundct = 1
 let fighter1 = 0
 let fighter2 = 0
 let weapon1= 5
@@ -38,6 +41,10 @@ let attPlus = 1
 let but1 =1
 let but2 =2
 let but3 =4
+let crit1 = 5
+let crit2 = 5
+let critd1 = 1.5
+let critd2 = 1.5
 let gameMode = 2
 hp1.innerHTML= castleHP1
 hp2.innerHTML= castleHP2
@@ -81,12 +88,14 @@ function resetgame(level){
 
 //! fighting calculation
 function attacker1(wep){
-    attack1 += Math.ceil(( Math.random() * weapon1)+ attMod)
-    att1displ.innerHTML=`${attack1}`
+    if((Math.random()*100) >crit1){critd1 = 1} 
+    attack1 += Math.ceil(((Math.ceil(( Math.random() * weapon1)+ attMod)) * critd1))
+    att1displ.innerHTML=`${attack1} ${critd1}`
 }
 function attacker2(wep){
-    attack2 += Math.ceil( Math.random() * weapon2)
-    att2displ.innerHTML=`${attack2}`
+    if((Math.random()*100) >crit2){critd2 = 1} 
+    attack2 += Math.ceil(((Math.ceil( Math.random() * weapon2)) * critd2))
+    att2displ.innerHTML=`${attack2} ${critd2}`
 }
 function compare(sand){
 if (attack1 < attack2){
@@ -133,6 +142,8 @@ else if (victor == 1){
  winner = 0
  diff = 0
  attMod = 0
+ critd1 =1.5
+ critd2 =1.5
  updatestats()
 }
 //  update life/gold
@@ -214,6 +225,7 @@ else if (gameMode == 2){
 function nextRound(time){
     castleGold1 += 5
     castleHP1 += 5
+    roundct +=1
     strongerComp()
     openBuy()
     softReset()
@@ -238,16 +250,23 @@ function softReset(){
         att2displ.innerHTML=``
 }
 function strongerComp(){
-if (castleGold2 < 10){
+if (castleGold2 == 0){
+    weapon2 += 2
+    castleHP2 = 50
+    crit2 += 2  
+}
+else if (castleGold2 < 10){
     weapon2 += 1
     castleHP2= 20 + (castleGold2)
-    console.log(`${weapon2}`)
+    console.log(`${crit2}`)
+    crit2 += 1
 }
 else if (castleGold2 > 10 ){
     weapon2 += 2
     castleGold2 -= 10
     castleHP2= 10 + (castleGold2)
-    console.log(`${weapon2}`)
+   
+    crit2 += 1
 }
 }
 // resetgame()
@@ -305,7 +324,7 @@ winBuyBt1.addEventListener('click',()=>{
         gold1.innerHTML= castleGold1
     }
     else{}
-    closeBuy()
+    // closeBuy()
 })
 winBuyBt2.addEventListener('click',()=>{
     if(castleGold1 > 10){
@@ -314,7 +333,27 @@ winBuyBt2.addEventListener('click',()=>{
         gold1.innerHTML= castleGold1
         hp1.innerHTML= castleHP1
     } else{}
-    closeBuy()
+    // closeBuy()
+})
+winBuyBt4.addEventListener('click',()=>{
+    if(castleGold1 > 10){
+        crit1 += 1
+        crit2 -= 2
+        castleGold1 = castleGold1 - 10
+        gold1.innerHTML= castleGold1
+        hp1.innerHTML= castleHP1
+    } else{}
+    // closeBuy()
+})
+winBuyBt5.addEventListener('click',()=>{
+    if(castleGold1 > 15){
+        weapon1 += 1
+        crit1 += 1
+        castleGold1 = castleGold1 - 15
+        gold1.innerHTML= castleGold1
+        hp1.innerHTML= castleHP1
+    } else{}
+    // closeBuy()
 })
 winBuyBt3.addEventListener('click',()=>{
     closeBuy()
