@@ -43,8 +43,10 @@ let but2 =2
 let but3 =4
 let crit1 = 5
 let crit2 = 5
-let critd1 = 1.5
+let critd1 = 15
 let critd2 = 1.5
+let critdm1 = 1
+let critdm2 = 1
 let gameMode = 2
 hp1.innerHTML= castleHP1
 hp2.innerHTML= castleHP2
@@ -88,13 +90,15 @@ function resetgame(level){
 
 //! fighting calculation
 function attacker1(wep){
-    if((Math.random()*100) >crit1){critd1 = 1} 
-    attack1 += Math.ceil(((Math.ceil(( Math.random() * weapon1)+ attMod)) * critd1))
+    if((Math.random()*100) >crit1){critdm1 = 1}
+    else{critdm1=(critd1/10)} 
+    attack1 += Math.ceil(((Math.ceil(( Math.random() * weapon1)+ attMod)) * critdm1))
     att1displ.innerHTML=`${attack1} ${critd1}`
 }
 function attacker2(wep){
-    if((Math.random()*100) >crit2){critd2 = 1} 
-    attack2 += Math.ceil(((Math.ceil( Math.random() * weapon2)) * critd2))
+    if((Math.random()*100) >crit2){critdm2 = 1} 
+    else{critdm2=critd2} 
+    attack2 += Math.ceil(((Math.ceil( Math.random() * weapon2)) * critdm2))
     att2displ.innerHTML=`${attack2} ${critd2}`
 }
 function compare(sand){
@@ -142,8 +146,6 @@ else if (victor == 1){
  winner = 0
  diff = 0
  attMod = 0
- critd1 =1.5
- critd2 =1.5
  updatestats()
 }
 //  update life/gold
@@ -264,8 +266,7 @@ else if (castleGold2 < 10){
 else if (castleGold2 > 10 ){
     weapon2 += 2
     castleGold2 -= 10
-    castleHP2= 10 + (castleGold2)
-   
+    castleHP2= 10 + (castleGold2)   
     crit2 += 1
 }
 }
@@ -311,15 +312,9 @@ function closeBuy(){
     winbuy.style.display = 'none';
 }
 winBuyBt1.addEventListener('click',()=>{
-    if(castleGold1 > 20){
-        weapon1 += 2
-        castleGold1 = castleGold1 - 20
-        label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
-        gold1.innerHTML= castleGold1
-    }
-    else if(castleGold1 > 10){
+ if(castleGold1 > (weapon1+5)){
         weapon1 += 1
-        castleGold1 = castleGold1 - 10
+        castleGold1 = castleGold1 - weapon1 - 5
         label1.innerHTML=`WEAPON ${weapon1} ${wepBonus1}`
         gold1.innerHTML= castleGold1
     }
@@ -336,20 +331,21 @@ winBuyBt2.addEventListener('click',()=>{
     // closeBuy()
 })
 winBuyBt4.addEventListener('click',()=>{
-    if(castleGold1 > 10){
+    if(castleGold1 > (weapon1)){
         crit1 += 1
         crit2 -= 2
-        castleGold1 = castleGold1 - 10
+        castleGold1 = castleGold1 - weapon1
         gold1.innerHTML= castleGold1
         hp1.innerHTML= castleHP1
     } else{}
     // closeBuy()
 })
 winBuyBt5.addEventListener('click',()=>{
-    if(castleGold1 > 15){
+    if(castleGold1 > (weapon1 + 10)){
         weapon1 += 1
         crit1 += 1
-        castleGold1 = castleGold1 - 15
+        critd1 += 1
+        castleGold1 = castleGold1 - weapon1 - 10
         gold1.innerHTML= castleGold1
         hp1.innerHTML= castleHP1
     } else{}
